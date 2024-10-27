@@ -28,28 +28,25 @@ function playSong() {
     musicContainer.classList.add('play');
     playBtn.querySelector('i.fas').classList.replace('fa-play', 'fa-pause');
     audio.play();
-    volume();
 }
 
 function pauseSong() {
     musicContainer.classList.remove('play');
     playBtn.querySelector('i.fas').classList.replace('fa-pause', 'fa-play');
     audio.pause();
-    volume();
 }
 
 function prevSong() {
     songIndex = songIndex > 0 ? songIndex - 1 : songs.length - 1;
     loadSong(songs[songIndex].toUpperCase());
     playSong();
-    volume();
+
 }
 
 function nextSong() {
     songIndex = (songIndex + 1) % songs.length;
     loadSong(songs[songIndex].toUpperCase());
     playSong();
-    volume();
 }
 
 function updateProgress(e) {
@@ -64,18 +61,16 @@ function setProgress(e) {
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
 }
-function volume(volumeValue) {
+
 volumeControl.addEventListener('input', (e) => {
     audio.volume = e.target.value;
-    console.log(audio.volume)
 });
-}
+
 
 // Event listeners
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play');
     isPlaying ? pauseSong() : playSong();
-    volume();
 });
 
 prevBtn.addEventListener('click', prevSong);
