@@ -28,7 +28,7 @@ function playSong() {
     musicContainer.classList.add('play');
     playBtn.querySelector('i.fas').classList.replace('fa-play', 'fa-pause');
     audio.play();
-    volume(setVolumeValue);
+    volume();
 }
 
 function pauseSong() {
@@ -42,7 +42,7 @@ function prevSong() {
     songIndex = songIndex > 0 ? songIndex - 1 : songs.length - 1;
     loadSong(songs[songIndex].toUpperCase());
     playSong();
-    volume(set);
+    volume();
 }
 
 function nextSong() {
