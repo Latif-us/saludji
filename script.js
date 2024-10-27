@@ -1,4 +1,3 @@
-
 const musicContainer = document.querySelector('.music-containers');
 const playBtn = document.querySelector('#play');
 const prevBtn = document.querySelector('#prev');
@@ -9,19 +8,19 @@ const progressContainer = document.querySelector('.progress-container');
 const title = document.querySelector('#title');
 const volumeControl = document.getElementById('volume-control');
 const setVolumeValue = 0.2;
-let newVolumeValue;
 
 // Song titles
 const songs = ['again', 'answerme', 'bryannnn', 'cowboy', 'crossed', 'Darkest Place', 'don\'t stop me now', 'flashh', 'got to do it', 'Haha groove', 'kavi', 'kazinsky', 'Lets Play', 'madamada', 'moveOn', 'no purpose', 'outstanding', 'pleased_2', 'Project_29', 'stranger', 'teddy', 'To Love You', 'Tonight', 'waisted', 'watizlov'];
 
 // song index
 let songIndex = 0;
-loadSong(songs[songIndex].toUpperCase());
+loadSong(songs[songIndex]);
 
 // Load song info
 function loadSong(song) {
-    title.innerText = song.replace(/_/g, " ");
+    title.innerText = song.replace(/_/g, " ").toUpperCase();
     audio.src = `music/${song}.mp3`;
+    audio.volume = setVolumeValue; // Initial volume
 }
 
 function playSong() {
@@ -38,14 +37,13 @@ function pauseSong() {
 
 function prevSong() {
     songIndex = songIndex > 0 ? songIndex - 1 : songs.length - 1;
-    loadSong(songs[songIndex].toUpperCase());
+    loadSong(songs[songIndex]);
     playSong();
-
 }
 
 function nextSong() {
     songIndex = (songIndex + 1) % songs.length;
-    loadSong(songs[songIndex].toUpperCase());
+    loadSong(songs[songIndex]);
     playSong();
 }
 
@@ -55,17 +53,16 @@ function updateProgress(e) {
     progress.style.width = `${progressPercent}%`;
 }
 
-function setProgress(e) {
-    const width = this.clientWidth;
+const setProgress = (e) => {
+    const width = e.currentTarget.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
-}
+};
 
 volumeControl.addEventListener('input', (e) => {
     audio.volume = e.target.value;
 });
-
 
 // Event listeners
 playBtn.addEventListener('click', () => {
