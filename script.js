@@ -10,7 +10,7 @@ const volumeControl = document.getElementById('volume-control');
 const setVolumeValue = 0.2;
 
 // Song titles
-const songs = ['again', 'answerme', 'bryannnn', 'cowboy', 'crossed', 'Darkest Place', 'don\'t stop me now', 'flashh', 'got to do it', 'Habiba','Haha groove', 'kavi', 'kazinsky', 'Last Mile', 'Lets Play', 'madamada', 'moveOn', 'no purpose', 'outstanding', 'pleased_2', 'Project_11', 'Project_29', 'Project_33', 'Project_40', 'Project_54', 'Soloing Life', 'stranger', 'Synthwave', 'teddy', 'To Love You', 'Tonight', 'waisted', 'watizlov'];
+const songs = ['again', 'answerme', 'Bryan','bryannnn', 'cowboy', 'crossed', 'Darkest Place', 'do not rush things' , "don't stop me now", 'flashh', 'got to do it', 'Habiba','Haha groove', 'imdown', 'kavi', 'kazinsky', 'Last Mile', 'Lets Play', 'madamada', 'moveOn', 'no purpose', 'outstanding', 'pleased_2', 'Project_11', 'Project_29', 'Project_33', 'Project_40', 'Project_54', 'Soloing Life', 'stranger', 'Synthwave', 'teddy', 'Through the night', 'To Love You', 'Tonight', 'Vice City', 'waisted', 'watizlov'];
 
 // song index
 let songIndex = 0;
